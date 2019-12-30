@@ -1,3 +1,5 @@
+demo170下的子模块
+
 demo171
 注册中心
 
@@ -11,10 +13,17 @@ demo174
 demo175
 使用git配置文件
 
+demo176(废弃)
+
 demo177
 读取git配置文件，并注册到注册中心
 demo178
 使用git配置文件，并注册到注册中心
+
+demo181(废弃)
+
+demo182
+配置中心和消息总线
 
 demo180
 rabbitmq模块
