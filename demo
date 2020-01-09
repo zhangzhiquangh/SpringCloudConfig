@@ -29,6 +29,11 @@ demo216
 http://localhost:9006/spc/dev
 http://localhost:9006/spc-dev.properties
 
+demo217
+没有注册到中心，从git配置服务获取配置
+端口9007
+http://localhost:9007/hello
+
 ====================================================
 
 demo172
