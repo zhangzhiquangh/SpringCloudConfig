@@ -19,6 +19,7 @@ demo214（不可用）
 
 demo215
 服务调用者，熔断监控Hystrix Dashboard
+http://localhost:9005/hystrix
 
 ====================================================
 
