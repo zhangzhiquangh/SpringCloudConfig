@@ -40,6 +40,11 @@ demo218
 http://localhost:9008/spc/dev
 http://localhost:9008/spc-dev.properties
 
+demo219
+有发布到中心，从git配置服务获取配置
+端口9009
+http://localhost:9009/hello
+
 ====================================================
 
 demo172
