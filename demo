@@ -3,14 +3,22 @@ demo210下的子模块
 demo211
 注册中心
 端口9001
+http://localhost:9001/
 
 demo212
 服务提供者
 端口9002
+http://localhost:9002/hello?name=zhang
 
 demo213
-服务调用者
+服务调用者，使用熔断器
 端口9003
+http://localhost:9003/hello/zhang
+
+demo214（不可用）
+
+demo215
+服务调用者，熔断监控Hystrix Dashboard
 
 ====================================================
 
