@@ -34,6 +34,12 @@ demo217
 端口9007
 http://localhost:9007/hello
 
+demo218
+有发布到注册中心，git配置文件获取
+端口9008
+http://localhost:9008/spc/dev
+http://localhost:9008/spc-dev.properties
+
 ====================================================
 
 demo172
