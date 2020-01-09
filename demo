@@ -19,8 +19,14 @@ demo214（不可用）
 
 demo215
 服务调用者，熔断监控Hystrix Dashboard
+端口9005
 http://localhost:9005/hystrix
 http://localhost:9005/hystrix.stream
+
+demo216
+没有注册到中心，git配置文件获取
+端口9006
+http://localhost:9006/spc/dev
 
 ====================================================
 
