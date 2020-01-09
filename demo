@@ -27,6 +27,7 @@ demo216
 没有注册到中心，git配置文件获取
 端口9006
 http://localhost:9006/spc/dev
+http://localhost:9006/spc-dev.properties
 
 ====================================================
 
