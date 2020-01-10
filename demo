@@ -57,6 +57,12 @@ demo221
 http://localhost:9011/hello
 http://localhost:9011/actuator/bus-refresh
 
+demo222
+git服务，支持实时
+端口9012
+http://localhost:9012/spc/dev
+http://localhost:9012/actuator/bus-refresh
+
 ====================================================
 
 demo172
