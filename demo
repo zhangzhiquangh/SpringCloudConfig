@@ -92,6 +92,7 @@ demo224
 zuul简单测试，注册到中心，从中心获取服务
 端口9014
 http://localhost:9014/producer/hello?name=zhang
+需要启动的模块demo211,212,224
 
 demo180
 rabbitmq模块
