@@ -35,15 +35,20 @@ demo217
 http://localhost:9007/hello
 
 demo218
-有发布到注册中心，git配置文件获取
+git配置文件获取
 端口9008
 http://localhost:9008/spc/dev
 http://localhost:9008/spc-dev.properties
 
 demo219
-有发布到中心，从git配置服务获取配置
+从git配置服务获取配置
 端口9009
 http://localhost:9009/hello
+
+demo220
+从git配置服务获取配置，支持实时修改
+端口9010
+http://localhost:9010/hello
 
 ====================================================
 
