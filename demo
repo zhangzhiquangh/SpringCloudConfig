@@ -51,6 +51,12 @@ demo220
 http://localhost:9010/hello
 http://localhost:9010/actuator/bus-refresh
 
+demo221
+从git配置服务获取配置，支持实时修改
+端口9011
+http://localhost:9011/hello
+http://localhost:9011/actuator/bus-refresh
+
 ====================================================
 
 demo172
