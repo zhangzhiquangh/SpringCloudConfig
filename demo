@@ -81,5 +81,12 @@ http://localhost:9012/actuator/bus-refresh
 
 ====================================================
 
+demo223
+zuul简单测试
+端口9013
+http://localhost:9013/hello/hello?name=zhang
+
+====================================================
+
 demo180
 rabbitmq模块
