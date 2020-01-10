@@ -88,5 +88,10 @@ http://localhost:9013/hello/hello?name=zhang
 
 ====================================================
 
+demo224
+zuul简单测试，注册到中心，从中心获取服务
+端口9014
+http://localhost:9014/producer/hello?name=zhang
+
 demo180
 rabbitmq模块
