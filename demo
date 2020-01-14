@@ -89,7 +89,7 @@ http://localhost:9013/hello/hello?name=zhang
 ====================================================
 
 demo224
-zuul简单测试，注册到中心，从中心获取服务
+zuul简单测试，注册到中心，从中心获取服务，自定义filter，路由熔断
 端口9014
 http://localhost:9014/producer/hello?name=zhang
 http://localhost:9014/producer/hello?name=zhang&token=888
