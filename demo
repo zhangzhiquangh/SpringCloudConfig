@@ -95,5 +95,11 @@ http://localhost:9014/producer/hello?name=zhang
 http://localhost:9014/producer/hello?name=zhang&token=888
 需要启动的模块demo211,212,224
 
+====================================================
+
+demo225（不可用）
+
+====================================================
+
 demo180
 rabbitmq模块
