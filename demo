@@ -109,7 +109,8 @@ rabbitmq模块
 
 
 
-demo21
-demo22
-demo23
-demo24
+demo21-注册中心8000
+demo22-服务提供者9000
+demo23-服务消费者9001
+demo24-服务网关8888
+demo28-服务提供者9000
