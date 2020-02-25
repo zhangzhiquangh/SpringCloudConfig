@@ -224,3 +224,120 @@ java接口不具有实现代码，所以继承接口无法达到代码的复用�
 找出应用中可能需要变化之处，把它们独立出来，不要和那些不需要变化的代码混合在一起。
 设计原则2
 针对接口编程，而不是针对实现编程。
+
+package org.example.pg3;
+
+public abstract class Duck {
+    FlyBehavior flyBehavior;
+    QuackBehavior quackBehavior;
+
+    public void setFlyBehavior(FlyBehavior flyBehavior) {
+        this.flyBehavior = flyBehavior;
+    }
+
+    public void setQuackBehavior(QuackBehavior quackBehavior) {
+        this.quackBehavior = quackBehavior;
+    }
+
+    public Duck() {
+    }
+    public abstract void display();
+    public void performFly(){flyBehavior.fly();}
+    public void performQuack(){quackBehavior.quack();}
+    public void swim(){
+        System.out.println("All ducks float,even decoys!");
+    }
+}
+
+package org.example.pg3;
+
+public class ModelDuck extends Duck {
+    public ModelDuck() {
+        flyBehavior=new FlyNoWay();
+        quackBehavior=new Quack();
+    }
+
+    @Override
+    public void display() {
+        System.out.println("I'm a ModelDuck duck");
+    }
+}
+
+
+package org.example.pg3;
+
+public interface FlyBehavior {
+    public void fly();
+}
+
+package org.example.pg3;
+
+public class FlyNoWay implements FlyBehavior {
+    @Override
+    public void fly() {
+        System.out.println("I can't fly");
+    }
+}
+
+package org.example.pg3;
+
+public class FlyWithWings implements FlyBehavior {
+    @Override
+    public void fly() {
+        System.out.println("I'm flying");
+    }
+}
+
+package org.example.pg3;
+
+public class FlyRocketPowered implements FlyBehavior {
+    @Override
+    public void fly() {
+        System.out.println("I'm flying with a rocket!");
+    }
+}
+
+package org.example.pg3;
+
+public interface QuackBehavior {
+    public void quack();
+}
+
+package org.example.pg3;
+
+public class Quack implements QuackBehavior {
+    @Override
+    public void quack() {
+        System.out.println("Quack");
+    }
+}
+
+package org.example.pg3;
+
+public class Squeak implements QuackBehavior {
+    @Override
+    public void quack() {
+        System.out.println("Squeak");
+    }
+}
+
+package org.example.pg3;
+
+public class MuteQuack implements QuackBehavior {
+    @Override
+    public void quack() {
+        System.out.println("Silence");
+    }
+}
+
+package org.example.pg3;
+
+public class MiniDuckSimulator {
+    public static void main(String[] args) {
+        Duck modelDuck = new ModelDuck();
+        modelDuck.performFly();
+        modelDuck.setFlyBehavior(new FlyRocketPowered());
+        modelDuck.performFly();
+        modelDuck.performQuack();
+    }
+}
