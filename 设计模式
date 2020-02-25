@@ -341,3 +341,6 @@ public class MiniDuckSimulator {
         modelDuck.performQuack();
     }
 }
+
+设计原则3
+多用组合，少用继承。
