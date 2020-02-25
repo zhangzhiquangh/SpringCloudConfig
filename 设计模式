@@ -1,1 +1,170 @@
+1欢迎来到设计模式世界：设计模式入门
 
+package org.example.pg1;
+
+/**
+ * 鸭子抽象类
+ */
+public abstract class Duck {
+    public abstract void quack();
+    public abstract void swim();
+    public abstract void display();
+    public abstract void fly();
+}
+
+package org.example.pg1;
+
+/**
+ * MallardDuck鸭
+ */
+public class MallardDuck extends Duck {
+    @Override
+    public void quack() {
+        System.out.println("MallardDuck.quack");
+    }
+
+    @Override
+    public void swim() {
+        System.out.println("MallardDuck.swim");
+    }
+
+    @Override
+    public void display() {
+        System.out.println("MallardDuck.display");
+    }
+
+    @Override
+    public void fly() {
+        System.out.println("MallardDuck.fly");
+    }
+}
+
+package org.example.pg1;
+
+/**
+ * 红头鸭
+ */
+public class RedheadDuck extends Duck {
+    @Override
+    public void quack() {
+        System.out.println("RedheadDuck.quack");
+    }
+
+    @Override
+    public void swim() {
+        System.out.println("RedheadDuck.swim");
+    }
+
+    @Override
+    public void display() {
+        System.out.println("RedheadDuck.display");
+    }
+
+    @Override
+    public void fly() {
+        System.out.println("RedheadDuck.fly");
+    }
+}
+
+package org.example.pg1;
+
+/**
+ * 橡皮鸭
+ */
+public class RubberDuck extends Duck {
+    @Override
+    public void quack() {
+        System.out.println("RubberDuck.quack");
+    }
+
+    @Override
+    public void swim() {
+        System.out.println("RubberDuck.swim");
+    }
+
+    @Override
+    public void display() {
+        System.out.println("RubberDuck.display");
+    }
+
+    /**
+     * 橡皮鸭不会飞
+     */
+    @Override
+    public void fly() {
+//        System.out.println("RubberDuck.fly");
+    }
+}
+
+package org.example.pg1;
+
+/**
+ * 诱饵鸭
+ */
+public class DecoyDuck extends Duck {
+    /**
+     * 诱饵鸭不会叫
+     */
+    @Override
+    public void quack() {
+
+    }
+
+    @Override
+    public void swim() {
+
+    }
+
+    @Override
+    public void display() {
+        System.out.println("DecoyDuck.display");
+    }
+
+    /**
+     * 诱饵鸭不会飞
+     */
+    @Override
+    public void fly() {
+
+    }
+}
+
+package org.example.pg1;
+
+public class Test {
+    public static void main(String[] args) {
+        RedheadDuck redheadDuck = new RedheadDuck();
+        MallardDuck mallardDuck = new MallardDuck();
+        RubberDuck rubberDuck = new RubberDuck();
+        rubberDuck.fly();
+        redheadDuck.display();
+        mallardDuck.display();
+    }
+}
+
+"F:\Program Files\Java\jdk1.8.0_191\bin\java.exe" "-javaagent:F:\install\IntelliJ IDEA 2019.3.2\lib\idea_rt.jar=57577:F:\install\IntelliJ IDEA 2019.3.2\bin" -Dfile.encoding=UTF-8 -classpath "F:\Program Files\Java\jdk1.8.0_191\jre\lib\charsets.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\deploy.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\access-bridge-64.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\cldrdata.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\dnsns.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\jaccess.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\jfxrt.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\localedata.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\nashorn.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\sunec.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\sunjce_provider.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\sunmscapi.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\sunpkcs11.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\zipfs.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\javaws.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\jce.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\jfr.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\jfxswt.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\jsse.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\management-agent.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\plugin.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\resources.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\rt.jar;F:\install\shanshen\demo1582598389\target\classes" org.example.pg1.Test
+RedheadDuck.display
+MallardDuck.display
+
+Process finished with exit code 0
+
+利用继承来提供Duck的行为，这会导致下列缺点
+代码在多个子类中重复
+运行时的行为不容易改变
+很难知道所有鸭子的全部行为
+改变会牵一发动全身，造成其他鸭子不想要的改变
+
+
+
+
+
+
+
+
+
+
+
+设计原则1
+找出应用中可能需要变化之处，把它们独立出来，不要和那些不需要变化的代码混合在一起。
+设计原则2
+针对接口编程，而不是针对实现编程。
