@@ -110,3 +110,90 @@ public class WeatherStation {
 Current conditions:80.0 F degrees and 65.0% humidity
 
 Process finished with exit code 0
+
+利用内置的支持重做气象站
+
+package org.example.pg5;
+
+import java.util.Observable;
+
+public class WeatherData extends Observable {
+    private float temperature;
+    private float humidity;
+    private float pressure;
+
+    public WeatherData() {
+    }
+
+    public void measurementsChanged() {
+        setChanged();
+        notifyObservers();
+    }
+
+    public void setMeasurements(float temperature, float humidity, float pressure) {
+        this.temperature = temperature;
+        this.humidity = humidity;
+        this.pressure = pressure;
+        measurementsChanged();
+    }
+
+    public float getTemperature() {
+        return temperature;
+    }
+
+    public float getHumidity() {
+        return humidity;
+    }
+
+    public float getPressure() {
+        return pressure;
+    }
+}
+
+package org.example.pg5;
+
+import org.example.pg4.DisplayElement;
+
+import java.util.Observable;
+import java.util.Observer;
+
+public class CurrentConditionsDisplay implements Observer, DisplayElement {
+    Observable observable;
+    private float temperature;
+    private float humidity;
+
+    public CurrentConditionsDisplay(Observable observable) {
+        this.observable = observable;
+        observable.addObserver(this);
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        if (o instanceof WeatherData) {
+            WeatherData weatherData = (WeatherData) o;
+            this.temperature = weatherData.getTemperature();
+            this.humidity = weatherData.getHumidity();
+            display();
+        }
+    }
+
+    @Override
+    public void display() {
+        System.out.println("Current conditions:" + temperature + " F degrees and " + humidity + "% humidity");
+    }
+}
+
+package org.example.pg5;
+
+public class WeatherStation {
+    public static void main(String[] args) {
+        WeatherData weatherData = new WeatherData();
+        CurrentConditionsDisplay currentConditionsDisplay = new CurrentConditionsDisplay(weatherData);
+        weatherData.setMeasurements(10, 30, 43.5f);
+    }
+}
+
+"F:\Program Files\Java\jdk1.8.0_191\bin\java.exe" "-javaagent:F:\install\IntelliJ IDEA 2019.3.2\lib\idea_rt.jar=53895:F:\install\IntelliJ IDEA 2019.3.2\bin" -Dfile.encoding=UTF-8 -classpath "F:\Program Files\Java\jdk1.8.0_191\jre\lib\charsets.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\deploy.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\access-bridge-64.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\cldrdata.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\dnsns.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\jaccess.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\jfxrt.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\localedata.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\nashorn.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\sunec.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\sunjce_provider.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\sunmscapi.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\sunpkcs11.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\ext\zipfs.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\javaws.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\jce.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\jfr.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\jfxswt.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\jsse.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\management-agent.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\plugin.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\resources.jar;F:\Program Files\Java\jdk1.8.0_191\jre\lib\rt.jar;F:\install\shanshen\demo1582598389\target\classes" org.example.pg5.WeatherStation
+Current conditions:10.0 F degrees and 30.0% humidity
+
+Process finished with exit code 0
