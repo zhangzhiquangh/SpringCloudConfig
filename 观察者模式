@@ -111,7 +111,7 @@ Current conditions:80.0 F degrees and 65.0% humidity
 
 Process finished with exit code 0
 
-利用内置的支持重做气象站
+使用java内置的观察者模式
 
 package org.example.pg5;
 
