@@ -2,3 +2,126 @@
 类应该对扩展开放，对修改关闭
 定义装饰者模式
 装饰者模式动态地将责任附加到对象上。若要扩展功能，装饰者提供了比继承更有弹性的替代方案
+package com.example.pg1;
+
+/**
+ * @Description:
+ * @Author:
+ * @Date: 2020-03-03 14:21
+ */
+public abstract class Beverage {
+    public String description = "Unknow Beverage";
+
+    public String getDescription() {
+        return description;
+    }
+
+    public abstract double cost();
+}
+
+package com.example.pg1;
+
+/**
+ * @Description:
+ * @Author:
+ * @Date: 2020-03-03 14:35
+ */
+public abstract class CondimentDecorator extends Beverage {
+    public abstract String getDescription();
+}
+
+package com.example.pg1;
+
+/**
+ * @Description:
+ * @Author:
+ * @Date: 2020-03-03 14:37
+ */
+public class Espresso extends Beverage {
+    public Espresso() {
+        description = "Espresso";
+    }
+
+    @Override
+    public double cost() {
+        return 1.99;
+    }
+}
+
+package com.example.pg1;
+
+/**
+ * @Description:
+ * @Author:
+ * @Date: 2020-03-03 14:39
+ */
+public class HouseBlend extends Beverage {
+    public HouseBlend() {
+        description = "HouseBlend";
+    }
+
+    @Override
+    public double cost() {
+        return .89;
+    }
+}
+
+package com.example.pg1.seasoning;
+
+import com.example.pg1.Beverage;
+import com.example.pg1.CondimentDecorator;
+
+/**
+ * @Description:
+ * @Author:
+ * @Date: 2020-03-03 14:42
+ */
+public class Mocha extends CondimentDecorator {
+    Beverage beverage;
+
+    public Mocha(Beverage beverage) {
+        this.beverage = beverage;
+    }
+
+    @Override
+    public String getDescription() {
+        return beverage.getDescription() + ",Mocha";
+    }
+
+    @Override
+    public double cost() {
+        return .20 + beverage.cost();
+    }
+}
+
+package com.example.pg1;
+
+import com.example.pg1.seasoning.Mocha;
+
+/**
+ * @Description:
+ * @Author:
+ * @Date: 2020-03-03 15:47
+ */
+public class StartbuzzCoffee {
+    public static void main(String[] args) {
+        Beverage espresso = new Espresso();
+        System.out.println(espresso.getDescription());
+        System.out.println(espresso.cost());
+
+
+        Beverage houseBlend = new HouseBlend();
+        houseBlend=new Mocha(houseBlend);
+        houseBlend=new Mocha(houseBlend);
+        System.out.println(houseBlend.getDescription());
+        System.out.println(houseBlend.cost());
+    }
+}
+
+D:\java\bin\java.exe "-javaagent:E:\idea\IntelliJ IDEA 2018.3.5\lib\idea_rt.jar=65526:E:\idea\IntelliJ IDEA 2018.3.5\bin" -Dfile.encoding=UTF-8 -classpath D:\java\jre\lib\charsets.jar;D:\java\jre\lib\deploy.jar;D:\java\jre\lib\ext\access-bridge-64.jar;D:\java\jre\lib\ext\cldrdata.jar;D:\java\jre\lib\ext\dnsns.jar;D:\java\jre\lib\ext\jaccess.jar;D:\java\jre\lib\ext\jfxrt.jar;D:\java\jre\lib\ext\localedata.jar;D:\java\jre\lib\ext\nashorn.jar;D:\java\jre\lib\ext\sunec.jar;D:\java\jre\lib\ext\sunjce_provider.jar;D:\java\jre\lib\ext\sunmscapi.jar;D:\java\jre\lib\ext\sunpkcs11.jar;D:\java\jre\lib\ext\zipfs.jar;D:\java\jre\lib\javaws.jar;D:\java\jre\lib\jce.jar;D:\java\jre\lib\jfr.jar;D:\java\jre\lib\jfxswt.jar;D:\java\jre\lib\jsse.jar;D:\java\jre\lib\management-agent.jar;D:\java\jre\lib\plugin.jar;D:\java\jre\lib\resources.jar;D:\java\jre\lib\rt.jar;E:\ideapro\demo1583216338\target\classes com.example.pg1.StartbuzzCoffee
+Espresso
+1.99
+HouseBlend,Mocha,Mocha
+1.29
+
+Process finished with exit code 0
