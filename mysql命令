@@ -10,6 +10,8 @@ mysqldump -u root -h host -p
 
 导出表结构
 mysqldump -u root -p password -d dbname tablename > filename.sql
+导出表结构及其数据
+mysqldump -u root -p password dbname tablename > filename.sql
 
 导入sql脚本
 source d:filename.sql
