@@ -106,17 +106,20 @@ import com.example.pg1.seasoning.Mocha;
 public class StartbuzzCoffee {
     public static void main(String[] args) {
         Beverage espresso = new Espresso();
+        espresso = new Mocha(espresso);
         System.out.println(espresso.getDescription());
         System.out.println(espresso.cost());
 
 
         Beverage houseBlend = new HouseBlend();
-        houseBlend=new Mocha(houseBlend);
-        houseBlend=new Mocha(houseBlend);
+        houseBlend = new Mocha(houseBlend);
+        houseBlend = new Mocha(houseBlend);
         System.out.println(houseBlend.getDescription());
         System.out.println(houseBlend.cost());
+
     }
 }
+
 
 D:\java\bin\java.exe "-javaagent:E:\idea\IntelliJ IDEA 2018.3.5\lib\idea_rt.jar=65526:E:\idea\IntelliJ IDEA 2018.3.5\bin" -Dfile.encoding=UTF-8 -classpath D:\java\jre\lib\charsets.jar;D:\java\jre\lib\deploy.jar;D:\java\jre\lib\ext\access-bridge-64.jar;D:\java\jre\lib\ext\cldrdata.jar;D:\java\jre\lib\ext\dnsns.jar;D:\java\jre\lib\ext\jaccess.jar;D:\java\jre\lib\ext\jfxrt.jar;D:\java\jre\lib\ext\localedata.jar;D:\java\jre\lib\ext\nashorn.jar;D:\java\jre\lib\ext\sunec.jar;D:\java\jre\lib\ext\sunjce_provider.jar;D:\java\jre\lib\ext\sunmscapi.jar;D:\java\jre\lib\ext\sunpkcs11.jar;D:\java\jre\lib\ext\zipfs.jar;D:\java\jre\lib\javaws.jar;D:\java\jre\lib\jce.jar;D:\java\jre\lib\jfr.jar;D:\java\jre\lib\jfxswt.jar;D:\java\jre\lib\jsse.jar;D:\java\jre\lib\management-agent.jar;D:\java\jre\lib\plugin.jar;D:\java\jre\lib\resources.jar;D:\java\jre\lib\rt.jar;E:\ideapro\demo1583216338\target\classes com.example.pg1.StartbuzzCoffee
 Espresso
