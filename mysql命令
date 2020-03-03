@@ -7,3 +7,9 @@ create table wn_n_channel like wn_n_channel_customers;
 mysqldump -u root -h host -p dbname > backdn.sql
 备份数据库中的某个表
 mysqldump -u root -h host -p
+
+导出表结构
+mysqldump -u root -p password -d dbname tablename > filename.sql
+
+导入sql脚本
+source d:filename.sql
