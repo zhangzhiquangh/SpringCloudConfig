@@ -1,0 +1,9 @@
+复制表及其数据
+create table wn_n_channel as select * from wn_n_channel_customers;
+只复制表结构到新表
+create table wn_n_channel like wn_n_channel_customers;
+
+备份整个数据库
+mysqldump -u root -h host -p dbname > backdn.sql
+备份数据库中的某个表
+mysqldump -u root -h host -p
