@@ -15,3 +15,9 @@ mysqldump -u root -p password dbname tablename > filename.sql
 
 导入sql脚本
 source d:filename.sql
+
+查看表创建语句
+show create table wn_n_recommend;
+
+修改表的编码
+alter table wn_n_recommend character set UTF8;
