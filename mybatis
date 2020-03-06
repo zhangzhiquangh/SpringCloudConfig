@@ -1,0 +1,68 @@
+关于一对多和一对一的示例
+    <resultMap id="shopProductSublist" type="com.wangniu.crm.common.entity.ShopProductSublist">
+        <id property="id" column="id" />
+        <result property="productId" column="product_id" />
+        <result property="describe" column="describe" />
+        <result property="groupId" column="group_id" />
+        <result property="sellingPoints" column="selling_points" />
+        <result property="productVideo" column="product_video" />
+        <result property="specification" column="specification" />
+        <result property="price" column="price" />
+        <result property="linePrice" column="line_price" />
+        <result property="inventory" column="inventory" />
+        <result property="isClubCard" column="is_club_card" />
+        <result property="costPrice" column="cost_price" />
+        <result property="createop" column="createop" />
+        <result property="createTime" column="create_time" />
+        <result property="updateop" column="updateop" />
+        <result property="updateTime" column="update_time" />
+        <association property="product" column="product_id" javaType="com.wangniu.crm.common.entity.Product">
+            <result property="productName" column="product_name" />
+            <result property="productCode" column="product_code" />
+            <result property="productBrand" column="product_category" />
+        </association>
+        <association property="shopProductShipment" column="id" javaType="com.wangniu.crm.common.entity.ShopProductShipment">
+            <result property="postage" column="postage" />
+            <result property="isImmediatelyOn" column="is_immediately_on" />
+            <result property="putawayTime" column="putaway_time" />
+        </association>
+        <collection property="shopProductImageList" column="id" javaType="ArrayList" ofType="com.wangniu.crm.common.entity.ShopProductImage">
+            <result property="isMasterMap" column="is_master_map" />
+            <result property="fileUrl" column="file_url" />
+        </collection>
+    </resultMap>
+    
+    <select id="getShopProductSublist" resultMap="shopProductSublist">
+        select
+            wnsps.id,
+            wnsps.product_id,
+            wnsps.`describe`,
+            wnsps.group_id,
+            wnsps.selling_points,
+            wnsps.product_video,
+            wnsps.specification,
+            wnsps.price,
+            wnsps.line_price,
+            wnsps.inventory,
+            wnsps.is_club_card,
+            wnsps.cost_price,
+            wnsps.createop,
+            wnsps.create_time,
+            wnsps.updateop,
+            wnsps.update_time,
+            wnp.product_name,
+            wnp.product_code,
+            wnp.product_category,
+            sps.postage,
+            sps.is_immediately_on,
+            sps.putaway_time,
+            spi.is_master_map,
+            spi.file_url
+        from
+            wn_n_shop_product_sublist wnsps
+            inner join wn_n_product wnp on wnp.id = wnsps.product_id
+            inner join wn_n_shop_product_shipment sps on wnsps.id
+            left join wn_n_shop_product_image spi on sps.shop_productid = wnsps.id
+        where
+            wnsps.id=#{id}
+    </select>
