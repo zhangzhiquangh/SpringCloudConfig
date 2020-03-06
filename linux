@@ -3,3 +3,12 @@ tar -zxvf 文件名称
 
 查看防火墙状态
 firewall-cmd --state
+
+查看防火墙所有开放的端口
+firewall-cmd --zone=public --list-ports
+
+开放某个端口
+firewall-cmd --zone=public --add-port=8080/tcp --permanent
+firewall-cmd --zone=public --remove-port=8080/tcp --permanent
+配置生效
+firewall-cmd --reload
