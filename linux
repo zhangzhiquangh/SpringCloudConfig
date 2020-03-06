@@ -1,5 +1,5 @@
 解压
-tar -zxvf 文件名称
+tar -zxvf apache-tomcat-9.0.31.tar.gz
 
 查看防火墙状态
 firewall-cmd --state
