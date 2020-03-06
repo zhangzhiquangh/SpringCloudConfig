@@ -1,3 +1,6 @@
+关机
+shutdown -h now
+
 解压
 tar -zxvf apache-tomcat-9.0.31.tar.gz
 
