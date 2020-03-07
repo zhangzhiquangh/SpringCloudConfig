@@ -131,3 +131,6 @@ ls | grep 字符串
 
 cat /etc/redhat-release
 查看系统版本
+
+rm -rf
+删除文件夹及其子文件，并且当子文件为只读时，也可以删除，不需要提示
