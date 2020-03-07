@@ -97,3 +97,9 @@ yum list installed
 yum -y install gcc
 yum -y install gcc-c++
 yum -y install libevent
+安装libfastcommon包
+地址：https://github.com/happyfish100/libfastcommon/releases
+https://github.com/happyfish100/libfastcommon绿色的按钮可以下载libfastcommon-master.zip
+
+ls | grep 字符串
+模糊列表文件名
