@@ -91,3 +91,9 @@ JRE_HOME=$JAVA_HOME/jre
 
 yum list installed
 列表所有已经安装的软件
+
+安装FastDFS
+安装软件
+yum -y install gcc
+yum -y install gcc-c++
+yum -y install libevent
