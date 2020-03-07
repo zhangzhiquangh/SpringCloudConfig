@@ -100,6 +100,24 @@ yum -y install libevent
 安装libfastcommon包
 地址：https://github.com/happyfish100/libfastcommon/releases
 https://github.com/happyfish100/libfastcommon绿色的按钮可以下载libfastcommon-master.zip
+将libfastcommon解压到/usr/local/fast，如果没有路径，创建，如果不支持unzip，安装yum install unzip
+unzip libfastcommon-master.zip -d /usr/local/fast/
+编译，安装
+./make.sh
+./make.sh install
+因为FastDFS主程序设置的目录为/usr/local/lib/，所以需要创建/usr/lib64/下的一些核心执行程序的软链接文件
+ln -s /usr/lib64/libfastcommon.so /usr/local/lib/libfastcommon.so
+如果/usr/lib/目录下，没有生成libfastcommon.so，也创建软链接
+ln -s /usr/lib64/libfastcommon.so /usr/lib/libfastcommon.so
+-s：软链接（符号链接）
+将FastDFS解压
+tar -zxvf FastDFS_v5.08.tar.gz -C /usr/local/fast/
+编译，安装
+./make.sh
+./make.sh install
+因为安装使用到了perl命令，所以安装yum -y install perl
+创建软链接
+ln -s /usr/lib64/libfdfsclient.so /usr/local/lib/libfdfsclient.so
 
 ls | grep 字符串
 模糊列表文件名
