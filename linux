@@ -103,3 +103,6 @@ https://github.com/happyfish100/libfastcommon绿色的按钮可以下载libfastc
 
 ls | grep 字符串
 模糊列表文件名
+
+cat /etc/redhat-release
+查看系统版本
