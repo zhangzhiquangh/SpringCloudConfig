@@ -54,3 +54,37 @@ yum clean,yum clean all(=yum clean packages;yum clean oldheaders):清除缓存�
 
 实例：利用yum的功能，找出以pam开头的软件名称有哪些
 yum list pam*
+
+
+vi命令
+vi 文件名
+a进入编辑模式
+esc退出编辑模式
+:q不保存退出
+:wq保存退出
+
+source /etc/profile
+让配置文件生效
+
+pwd
+查看当前所在路径
+
+安装jdk
+上传文件到/usr/java
+解压
+在/etc/profile最后添加
+export JAVA_HOME=/usr/java/jdk1.8.0_231
+export JRE_HOME=${JAVA_HOME}/jre
+export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib:$CLASSPATH
+export JAVA_PATH=${JAVA_HOME}/bin:${JRE_HOME}/bin
+export PATH=$PATH:${JAVA_PATH}
+让配置文件生效
+source profile
+
+安装tomcat
+上传文件到/usr/tomcat
+解压
+修改/usr/tomcat/apache-tomcat-9.0.31/bin/catalina.sh文件
+JAVA_HOME=/usr/java/jdk1.8.0_231
+JRE_HOME=$JAVA_HOME/jre
+# OS specific support.  $var _must_ be set to either true or false.
