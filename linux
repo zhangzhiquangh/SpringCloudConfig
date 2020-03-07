@@ -146,6 +146,8 @@ store_path2=....
 tracker_server=172.18.12.104:22122
 如果有多个则配置多个tracher
 tracker_server=172.18.12.105:22122
+设置http端口
+http.server_port=88
 重启
 /usr/bin/fdfs_storaged /etc/fdfs/storage.conf.sample restart
 
