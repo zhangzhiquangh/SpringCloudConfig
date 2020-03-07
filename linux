@@ -88,3 +88,6 @@ source profile
 JAVA_HOME=/usr/java/jdk1.8.0_231
 JRE_HOME=$JAVA_HOME/jre
 # OS specific support.  $var _must_ be set to either true or false.
+
+yum list installed
+列表所有已经安装的软件
