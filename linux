@@ -118,6 +118,13 @@ tar -zxvf FastDFS_v5.08.tar.gz -C /usr/local/fast/
 因为安装使用到了perl命令，所以安装yum -y install perl
 创建软链接
 ln -s /usr/lib64/libfdfsclient.so /usr/local/lib/libfdfsclient.so
+复制
+cp /usr/local/fast/FastDFS/conf/* /etc/fdfs/
+配置和启动tracker
+创建目录
+mkdir fastdfs
+/usr/bin/fdfs_trackerd /etc/fdfs/tracker.conf restart
+配置和启动storage
 
 ls | grep 字符串
 模糊列表文件名
