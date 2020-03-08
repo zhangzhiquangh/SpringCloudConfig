@@ -157,6 +157,9 @@ http.server_port=88
 /usr/local/fast/FastDFS/stop.sh /etc/fdfs/tracker.conf.sample
 /usr/local/fast/FastDFS/stop.sh /etc/fdfs/storage.conf.sample
 
+测试上传
+/usr/bin/fdfs_test /etc/fdfs/client.conf.sample upload /home/Activiti数据表.png
+
 查看进程
 ps -ef | grep fdfs
 
