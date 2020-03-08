@@ -19,6 +19,7 @@ firewall-cmd --zone=public --remove-port=8080/tcp --permanent
 配置生效
 firewall-cmd --reload
 
+=======================================================================================================
 目录结构说明
 /bin
 bin是Binary的缩写，这个目录存放着最经常使用的命令
@@ -34,6 +35,10 @@ bin是Binary的缩写，这个目录存放着最经常使用的命令
 
 /etc
 这个目录用来存放所有的系统管理所需要的配置文件和子目录
+
+/var
+这个目录中存放着在不断扩充着的东西，我们习惯将那些经常被修改的目录放在这个目录下。包括各种日志文件
+=======================================================================================================
 
 yum命令
 yum [options] [command] [package ...]
@@ -58,6 +63,8 @@ yum clean,yum clean all(=yum clean packages;yum clean oldheaders):清除缓存�
 实例：利用yum的功能，找出以pam开头的软件名称有哪些
 yum list pam*
 
+yum list installed
+列表所有已经安装的软件
 
 vi命令
 vi 文件名
@@ -72,6 +79,7 @@ source /etc/profile
 pwd
 查看当前所在路径
 
+=======================================================================================================
 安装jdk
 上传文件到/usr/java
 解压
@@ -91,10 +99,9 @@ source profile
 JAVA_HOME=/usr/java/jdk1.8.0_231
 JRE_HOME=$JAVA_HOME/jre
 # OS specific support.  $var _must_ be set to either true or false.
+=======================================================================================================
 
-yum list installed
-列表所有已经安装的软件
-
+=======================================================================================================
 安装FastDFS（两个包的版本，使用libfastcommon-master.zip和FastDFS_v5.05.tar.gz可成功安装）
 安装软件
 yum -y install gcc
@@ -165,8 +172,68 @@ http.server_port=88
 测试上传
 /usr/bin/fdfs_test /etc/fdfs/client.conf.sample upload /home/Activiti数据表.png
 
+FastDFS整合nginx
+上传fastdfs-nginx-module_v1.16.tar.gz到/usr/local并解压
+修改/usr/local/fast/fastdfs-nginx-module/src文件夹下的config，将/usr/local修改为/usr
+将/usr/local/fast/fastdfs-nginx-module/src下的mod_fastdfs.conf复制到/etc/fdfs/文件夹下，并修改
+base_path=/home/fastdfs
+tracker_server=172.18.12.104:22122
+url_have_group_name = true
+store_path0=/home/fdfs_storage
+
+安装Nginx
+上传安装包到/usr/local/并解压
+安装nginx依赖库
+yum -y install pcre
+yum -y install pcre-devel
+yum -y install zlib
+yum -y install zlib-devel
+yum -y install openssl
+yum -y install openssl-devel
+
+进入nginx解压目录
+加入模块命令配置
+./configure --add-module=/usr/local/fast/fastdfs-nginx-module/src
+编译并安装
+make
+make install
+复制/usr/local/fast/FastDFS/conf文件夹下的mime.types文件http.conf文件到/etc/fdfs/目录
+cd /usr/local/fast/FastDFS/conf
+cp http.conf mime.types /etc/fdfs/
+回到nginx安装目录下，修改nginx.conf
+cd /usr/local/nginx/conf
+pid        /usr/local/nginx/logs/nginx.pid;
+location /group1/M00/ {
+#root   html;
+#index  index.html index.htm;
+root /home/fdfs_storage/data;
+ngx_fastdfs_module;
+}
+启动nginx
+到nginx安装目录sbin下
+./nginx
+
+启动nginx
+nginx -c /path/to/nginx.conf
+关闭nginx
+nginx -s stop快速停止
+nginx -s quit完整有序停止
+重启nginx
+nginx -s reload修改配置后重新加载生效
+nginx -s reopen重新打开日志文件
+nginx -t -c /path/to/nginx.conf测试nginx配置文件是否正确
+其它停止nginx方式
+ps -ef | grep nginx
+kill -QUIT 主进程号：从容停止
+kill -TERM 主进程号：快速停止
+pkill -9 nginx：强制停止
+平滑重启
+kill -HUP 主进程号
+=======================================================================================================
+
 查看进程
 ps -ef | grep fdfs
+
 
 ls | grep 字符串
 模糊列表文件名
