@@ -157,6 +157,9 @@ http.server_port=88
 /usr/local/fast/FastDFS/stop.sh /etc/fdfs/tracker.conf.sample
 /usr/local/fast/FastDFS/stop.sh /etc/fdfs/storage.conf.sample
 
+查看进程
+ps -ef | grep fdfs
+
 ls | grep 字符串
 模糊列表文件名
 
