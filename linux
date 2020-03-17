@@ -251,3 +251,8 @@ cat /etc/redhat-release
 
 rm -rf
 删除文件夹及其子文件，并且当子文件为只读时，也可以删除，不需要提示
+
+代码版本管理工具
+mercurial.x86_64
+
+
