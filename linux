@@ -265,3 +265,7 @@ du -h --max-depth=1 /home/openjdk/jdk12-06222165c35f
 
 查看命令位置
 which java
+
+编译jdk
+编译FastDebug版、仅含Server模式的HotSpot虚拟机
+bash configure --enable-debug --with-jvm-variants=server
