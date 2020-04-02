@@ -67,6 +67,9 @@ yum list installed
 rpm -qa
 列表所有已经安装的软件
 
+查看某个命令是属于哪个包
+yum provides */netstat
+
 rpm -qa | grep gcc
 yum info gcc
 
@@ -269,3 +272,10 @@ which java
 编译jdk
 编译FastDebug版、仅含Server模式的HotSpot虚拟机
 bash configure --enable-debug --with-jvm-variants=server
+=======================================================================================================
+
+查看某个端口占用情况
+netstat -lnp|grep 8080
+
+杀死进程
+kill -9 进程号
