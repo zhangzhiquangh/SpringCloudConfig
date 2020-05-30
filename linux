@@ -279,3 +279,6 @@ netstat -lnp|grep 8080
 
 杀死进程
 kill -9 进程号
+
+查看ip
+ip addr
