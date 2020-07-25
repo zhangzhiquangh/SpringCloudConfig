@@ -70,6 +70,7 @@ rpm -qa
 查看某个命令是属于哪个包
 yum provides */netstat
 
+查看系统是否安装了某个包
 rpm -qa | grep gcc
 yum info gcc
 
