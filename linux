@@ -295,3 +295,7 @@ kill -9 进程号
 
 查看ip
 ip addr
+
+查看文件编码和转换编码
+file -i filename
+iconv
