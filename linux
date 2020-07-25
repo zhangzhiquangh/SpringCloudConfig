@@ -73,6 +73,18 @@ yum provides */netstat
 查看系统是否安装了某个包
 rpm -qa | grep gcc
 yum info gcc
+卸载
+rpm -e --nodeps mariadb-libs-5.5.64-1.el7.x86_64
+列出所有已安装软件包
+rpm -qa
+删除软件包
+rpm -e packagename
+强制删除软件和依赖包
+rpm -e --nodeps packagename
+查询是否安装
+rpm -q 包名
+安装软件包
+rpm -ivh 包名
 
 查看安装位置
 rpm -qal | grep gcc
