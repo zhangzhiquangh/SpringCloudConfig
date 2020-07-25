@@ -63,6 +63,9 @@ yum clean,yum clean all(=yum clean packages;yum clean oldheaders):清除缓存�
 实例：利用yum的功能，找出以pam开头的软件名称有哪些
 yum list pam*
 
+卸载软件包
+yum remove mariadb-libs.x86_64
+
 yum list installed
 rpm -qa
 列表所有已经安装的软件
