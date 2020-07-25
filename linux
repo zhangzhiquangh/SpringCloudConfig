@@ -299,3 +299,9 @@ ip addr
 查看文件编码和转换编码
 file -i filename
 iconv
+
+检查用户组
+cat /etc/group|grep mysql
+创建用户组，添加用户
+groupadd mysql
+useradd -r -g mysql mysql
