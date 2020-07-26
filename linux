@@ -308,3 +308,6 @@ cat /etc/group|grep mysql
 创建用户组，添加用户
 groupadd mysql
 useradd -r -g mysql mysql
+
+启动服务
+systemctl start mariadb
