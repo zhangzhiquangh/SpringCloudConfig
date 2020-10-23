@@ -50,6 +50,7 @@ yum常用命令
 1.列表所有可更新的软件清单：yum check-update
 2.更新所有软件命令：yum update
 3.仅安装指定的软件命令：yum install <package_name>
+yum -y install <package_name>
 4.仅更新指定的软件命令：yum update <package_name>
 5.列表所有可安装的软件清单：yum list
 6.删除软件包命令：yum remove <package_name>
