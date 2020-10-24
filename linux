@@ -313,3 +313,6 @@ useradd -r -g mysql mysql
 启动服务
 systemctl start mariadb
 systemctl restart mariadb
+
+查看开机服务
+systemctl list-unit-files;
