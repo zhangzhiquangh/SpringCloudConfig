@@ -32,3 +32,9 @@ EnumSet是一个专门为枚举类设计的集合类，EnumSet中的所有元素
 EnumSet以枚举值在Enum类内的定义顺序来决定集合元素的顺序。
 EnumSet在内部以位向量的形式存储，这种存储形式非常紧凑、高效，因此EnumSet对象占用内存很小，而且运行效率很好。尤其是进行批量操作时，如果参数也是EnumSet集合，则该批量操作的执行
 速度也非常快。
+
+各Set实现类的性能分析
+HashSet性能比TreeSet好（特别是最常用的添加、查询元素等操作），因为TreeSet需要额外的红黑树算法来维护集合元素的次序。只有当需要一个保持排序的Set时，才应该使用TreeSet，否则都应该使用HashSet。
+对于变通插入、删除操作，LinkedHashSet比HashSet要略微慢一点，这是由维护链表所带来的额外开销造成的，但由于有了链表，遍历LinkedHashSet会更快。
+EnumSet是所有Set实现类中性能最好的，但它只能保存同一个枚举类的枚举值作为集合元素。
+必须指出的是，Set的三个实现类HashSet、TreeSet和EnumSet都是线程不安全的。
