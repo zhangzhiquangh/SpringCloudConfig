@@ -78,3 +78,8 @@ LinkedHashMap也使用双向链表来维护key-value对我次序，性能略低�
 Properties类是Hashtable类的子类，该对象在处理属性文件时特别方便
 
 SortedMap接口和TreeMap实现类
+TreeMap就是一个红黑树数据结构，每个key-value对即作为红黑树的一个节点。TreeMap存储key-value对（节点）时，需要根据key对节点进行排序。TreeMap可以保证所有的key-value对处于有序状态。
+TreeMap也有两种排序方式。
+自然排序
+定制排序
+
