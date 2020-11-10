@@ -13,6 +13,22 @@ HashSet具有以下特点。
 不能保证元素的排列顺序，顺序可能与添加顺序不同，顺序也有可能发生变化。
 HashSet不是同步的，如果多个线程同时访问一个HashSet，假设有两个或者两个以上线程同时修改了HashSet集合时，则必须通过代码来保证其两步。
 集合元素值可以是null。
+当向HashSet集合中存入一个元素时，HashSet会调用该对象的hashCode()方法来得到该对象的hashCode值，然后根据该hashCode值决定该对象在HashSet中的存储位置。如果有两个元素通过equals()方法比较
+返回true，但它们的hashCode()方法返回值不相等，HashSet将会把它们存储在不同的位置，依然可以添加成功。
+也就是说，HashSet集合判断两个元素相等的标准是两个对象通过equals()方法比较相等，并且两个对象的hashCode()方法返回值也相等。
 
 LinkedHashSet类
-HashSet还有一个子类LinkedHashSet，
+HashSet还有一个子类LinkedHashSet，LinkedHashSet集合也是根据元素的hashCode值决定元素的存储位置，但它同时使用链表维护元素的次序，这样使得元素看起来是以插入的顺序保存的。也就是
+说，当遍历LinkedHashSet集合里的元素时，LinkedHashSet将会按元素的添加顺序来访问集合里的元素。
+LinkedHashSet需要维护元素的插入顺序，因此性能略低于HashSet的性能，但在迭代访问Set里的全部元素时将有很好的性能，因此它以链表来维护内部顺序
+
+TreeSet类
+TreeSet是SortedSet接口的实现类，正如SortedSet名字所暗示的，TreeSet可以确保集合元素处于排序状态。
+TreeSet并不是根据元素的插入顺序进行排序的，而是根据元素实际值的大小来进行排序的。
+与HashSet集合采用hash算法来决定元素的存储位置不同，TreeSet采用红黑树的数据结构来存储集合元素。TreeSet支持两种排序方法：自然排序和定制排序，默认采用自然排序
+
+EnumSet类
+EnumSet是一个专门为枚举类设计的集合类，EnumSet中的所有元素都必须是指定枚举类型的枚举值，该枚举类型在创建EnumSet时显式或隐式地指定。EnumSet的集合元素也是有序的，
+EnumSet以枚举值在Enum类内的定义顺序来决定集合元素的顺序。
+EnumSet在内部以位向量的形式存储，这种存储形式非常紧凑、高效，因此EnumSet对象占用内存很小，而且运行效率很好。尤其是进行批量操作时，如果参数也是EnumSet集合，则该批量操作的执行
+速度也非常快。
