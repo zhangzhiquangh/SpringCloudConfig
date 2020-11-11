@@ -83,3 +83,7 @@ TreeMap也有两种排序方式。
 自然排序
 定制排序
 
+String、StringBuffer和StringBuilder类的区别
+String是不可变类
+StringBuffer和StringBuilder是可变类
+StringBuffer是线程安全的，StringBuilder是非线程安全的
