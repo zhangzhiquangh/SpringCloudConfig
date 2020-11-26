@@ -161,7 +161,7 @@ ln -s /usr/lib64/libfdfsclient.so /usr/lib/libfdfsclient.so
 复制（可以不需要复制，直接修改/etc/fdfs/里生成的三个文件）
 cp /usr/local/fast/FastDFS/conf/* /etc/fdfs/
 配置和启动tracker
-创建目录
+在home目录下创建目录
 mkdir fastdfs
 修改文件
 /etc/fdfs/tracker.conf.sample
@@ -198,6 +198,9 @@ http.server_port=88
 /usr/local/fast/FastDFS/stop.sh /etc/fdfs/storage.conf.sample
 
 测试上传
+先修改/etc/fdfs/client.conf.sample文件
+base_path=/home/fastdfs
+tracker_server=172.17.77.63:22122
 /usr/bin/fdfs_test /etc/fdfs/client.conf.sample upload /home/Activiti数据表.png
 
 FastDFS整合nginx
