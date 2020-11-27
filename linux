@@ -148,6 +148,10 @@ ln -s /usr/lib64/libfastcommon.so /usr/local/lib/libfastcommon.so
 如果/usr/lib/目录下，没有生成libfastcommon.so，也创建软链接
 ln -s /usr/lib64/libfastcommon.so /usr/lib/libfastcommon.so
 -s：软链接（符号链接）
+
+
+
+
 将FastDFS解压
 tar -zxvf FastDFS_v5.08.tar.gz -C /usr/local/fast/
 编译，安装
