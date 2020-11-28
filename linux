@@ -323,3 +323,5 @@ systemctl restart mariadb
 
 查看开机服务
 systemctl list-unit-files;
+
+netstat -aon|findstr "8080"
