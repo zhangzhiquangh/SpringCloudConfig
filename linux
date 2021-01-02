@@ -7,6 +7,11 @@ tar -zxvf apache-tomcat-9.0.31.tar.gz
 查看防火墙状态
 firewall-cmd --state
 
+sudo systemctl status firewalld
+
+重启后会恢复原来的设置
+sudo systemctl start firewalld
+
 查看防火墙所有开放的端口
 firewall-cmd --zone=public --list-ports
 
