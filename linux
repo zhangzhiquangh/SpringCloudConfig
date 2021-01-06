@@ -1,6 +1,13 @@
 关机
 shutdown -h now
 
+查看网速
+yum list epel*
+安装这一个
+再查
+yum list iftop*
+安装查询到的
+
 解压
 tar -zxvf apache-tomcat-9.0.31.tar.gz
 
