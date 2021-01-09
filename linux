@@ -1,6 +1,9 @@
 关机
 shutdown -h now
 
+查询端口
+netstat -lnp|grep 9090
+
 查看网速
 yum list epel*
 安装这一个
